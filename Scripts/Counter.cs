@@ -18,6 +18,14 @@ public class Counter : MonoBehaviour
         _wait = new WaitForSeconds(_waitTime);
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ChangeState();
+        }
+    }
+
     private void StartCounting()
     {
         _countingCoroutine = StartCoroutine(Count());
