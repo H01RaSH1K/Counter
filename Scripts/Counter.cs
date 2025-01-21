@@ -10,8 +10,9 @@ public class Counter : MonoBehaviour
     private Coroutine _countingCoroutine;
 
     public event Action ValueChanged;
+
     public int Value { get; private set; } = 0;
-    public bool Counting => _countingCoroutine != null;
+    public bool IsCounting => _countingCoroutine != null;
 
     private void Start()
     {
@@ -52,9 +53,9 @@ public class Counter : MonoBehaviour
         ValueChanged?.Invoke();
     }
 
-    public void ChangeState()
+    private void ChangeState()
     {
-        if (Counting)
+        if (IsCounting)
         {
             StopCounting();
             return;
